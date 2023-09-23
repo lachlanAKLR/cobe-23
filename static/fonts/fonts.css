@@ -1,0 +1,14 @@
+@font-face {
+    font-family: HALmatex;
+    src: url(/fonts/HALMatex-Regular.woff);
+}
+
+@font-face {
+    font-family: affairsRegular;
+    src: url(/fonts/Affairs-Regular.woff);
+}
+
+@font-face {
+    font-family: affairsItalic;
+    src: url(/fonts/Affairs-Italic.woff);
+}

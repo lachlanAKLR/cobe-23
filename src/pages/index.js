@@ -1,176 +1,175 @@
-import * as React from "react"
+import * as React from 'react';
+import styled from 'styled-components';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
+import GlobalStyles from '../styles/GlobalStyles';
+import Logo from '../images/Logo.svg';
+import HomeText from '../components/HomeText';
+import LandingAnimation from '../components/LandingAnimation';
+import NavHome from '../components/NavHome';
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
+const HomeStyles = styled.div`
+  .logo {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    filter: invert();
+  }
 
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
+  .header__menu {
+    grid-column: span 2;
+  }
 
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
+  .header__page-title {
+    grid-column: span 3;
+  }
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
+  h2:nth-child(3) {
+    grid-column-start: 7;
+    display: block;
+  }
 
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
+  h2:nth-child(4) {
+    grid-column-start: 9;
+    display: block;
+  }
 
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
+  a {
+    color: white;
+    font-size: 18px;
+  }
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+  .dropdown__wrapper a {
+    color: black;
+  }
 
-const IndexPage = () => {
+  .gatsby-image-wrapper {
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .text__wrapper {
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    z-index: 50;
+    color: #fff;
+    padding: 30px;
+  }
+
+  .text__wrapper h5 {
+    grid-column: span 6;
+  }
+
+  .home__text-wrapper {
+    grid-column-start: 7;
+    grid-column-end: 12;
+  }
+
+  .bottom__links {
+    display: none;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .logo {
+      width: 40px;
+      height: 40px;
+      bottom: 20px;
+      left: 20px;
+    }
+
+    .text__wrapper {
+      padding: 20px;
+    }
+
+    h2:nth-child(3) a {
+      display: none;
+    }
+
+    h2:nth-child(4) a {
+      display: none;
+    }
+
+    .text__wrapper h5 {
+      grid-column: span 3;
+    }
+
+    .home__text-wrapper {
+      grid-column-start: 4;
+      grid-column-end: 7;
+    }
+    .bottom__links {
+      display: block;
+      display: flex;
+      gap: 30px;
+      position: fixed;
+      bottom: 30px;
+      left: 100px;
+    }
+    .bottom__links h3 {
+      color: white;
+    }
+  }
+`;
+
+export const Head = ({ data }) => (
+  <>
+    <title>Studio CoBe — Architecture & Interior Design</title>
+    <meta name="description" content={data.homeContent.metaText} />
+    <meta property="og:title" content="Studio CoBe" />
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="Architecture & Interior Design" />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/y425N3S/Social-Share.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </>
+);
+
+export default function Home({ data }) {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
+    <HomeStyles>
+      <GlobalStyles />
+      <NavHome title="Studio Cobe" />
+      <LandingAnimation />
+      <HomeText />
+      <div className="home__image-wrapper">
+        <div className="home__image">
+          <GatsbyImage
+            image={data.homeContent.image.asset.gatsbyImageData}
+            alt="Home Image"
+          />
+        </div>
+      </div>
+      <div className="bottom__content">
+        <Logo className="logo" />
+        <div className="bottom__links">
+          <a href="https://www.instagram.com/studio_cobe/?hl=en" target="blank">
+            <h3>Instagram</h3>
           </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
-  )
+          <a href="https://www.linkedin.com/company/studiocobe/" target="blank">
+            <h3>LinkedIn</h3>
+          </a>
+        </div>
+      </div>
+    </HomeStyles>
+  );
 }
 
-export default IndexPage
-
-export const Head = () => <title>Home Page</title>
+export const query = graphql`
+  query {
+    homeContent: sanityHome {
+      words
+      image {
+        asset {
+          gatsbyImageData(placeholder: BLURRED)
+        }
+      }
+      pageTitle
+      metaText
+    }
+  }
+`;
