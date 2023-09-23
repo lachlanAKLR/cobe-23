@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
+
 
 import Logo from '../images/Logo.svg';
 import Press from '../images/Press.svg';
@@ -254,19 +254,19 @@ function Header({ title, instagram, email }) {
             }
           >
             <div className="dropdown__top">
-              <AniLink fade to="/projects" duration={1.5}>
+              <Link fade to="/projects">
                 <h1 className="nav">Projects</h1>
-              </AniLink>
+              </Link>
               <p>
                 Residential and commercial work including architecture and
                 interior design.
               </p>
             </div>
-            <AniLink fade to="/projects" duration={1.5}>
+            <Link fade to="/projects">
               <div className="dropdown__icon">
                 <Projects className="dropdown__logo" />
               </div>
-            </AniLink>
+            </Link>
           </div>
           <div
             className={
@@ -276,18 +276,18 @@ function Header({ title, instagram, email }) {
             }
           >
             <div className="dropdown__top">
-              <AniLink fade to="/studio" duration={1.5}>
+              <Link fade to="/studio">
                 <h1 className="nav">Studio</h1>
-              </AniLink>
+              </Link>
               <p>
                 Our profile including our unique studio approach and process.
               </p>
             </div>
-            <AniLink fade to="/studio" duration={1.5}>
+            <Link fade to="/studio">
               <div className="dropdown__icon">
                 <Studio className="dropdown__logo" />
               </div>
-            </AniLink>
+            </Link>
           </div>
           <div
             className={
@@ -297,16 +297,16 @@ function Header({ title, instagram, email }) {
             }
           >
             <div className="dropdown__top">
-              <AniLink fade to="/contact" duration={1.5}>
+              <Link fade to="/contact">
                 <h1 className="nav">Contact</h1>
-              </AniLink>
+              </Link>
               <p>Get in touch with us about your project.</p>
             </div>
-            <AniLink fade to="/contact" duration={1.5}>
+            <Link fade to="/contact">
               <div className="dropdown__icon">
                 <Contact className="dropdown__logo" />
               </div>
-            </AniLink>
+            </Link>
           </div>
           <div
             className={
@@ -316,16 +316,16 @@ function Header({ title, instagram, email }) {
             }
           >
             <div className="dropdown__top">
-              <AniLink fade to="/press" duration={1.5}>
+              <Link fade to="/press">
                 <h1 className="nav">Press</h1>
-              </AniLink>
+              </Link>
               <p>Studio CoBe projects out and about in the world.</p>
             </div>
-            <AniLink fade to="/press" duration={1.5}>
+            <Link fade to="/press">
               <div className="dropdown__icon">
                 <Press className="dropdown__logo" />
               </div>
-            </AniLink>
+            </Link>
           </div>
         </div>
       </div>
