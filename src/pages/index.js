@@ -126,6 +126,7 @@ export const Head = ({ data }) => (
       content="https://i.ibb.co/y425N3S/Social-Share.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="p:domain_verify" content="1af16a39826e930942984fa786f2a5f4"/>
   </>
 );
 
