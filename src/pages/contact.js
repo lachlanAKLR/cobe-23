@@ -14,6 +14,8 @@ const ContactStyles = styled.div`
     color: var(--green);
   }
 
+
+
   .bar {
     background-color: var(--green);
   }
@@ -64,7 +66,9 @@ const ContactStyles = styled.div`
 
   .dropdown__wrapper {
     border-bottom: solid 1.5px var(--green);
+    background-color: var(--blue);
   }
+  
   footer {
     padding-top: 50px;
   }
