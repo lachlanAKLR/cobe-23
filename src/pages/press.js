@@ -7,7 +7,35 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Layouts from '../components/Layouts';
 
 const PressStyles = styled.div`
-  border-bottom: 1px solid black;
+
+  background-color: var(--cream);
+  color: var(--brown);  
+  border-bottom: 1px solid var(--brown);
+  
+  a {
+    color: var(--brown); 
+  }
+
+  .bar  {
+    background-color: var(--brown); 
+  }
+
+  .style__pill {
+    border: 1px solid var(--brown);
+  }
+
+  .logo,
+  .arrow__right,
+  .arrow,
+  .dropdown__logo {
+    filter: invert(50%) sepia(56%) saturate(427%) hue-rotate(353deg) brightness(91%) contrast(89%);
+  }
+
+
+  .dropdown__wrapper {
+    border-bottom: solid 1.5px var(--brown);
+  }
+
   .press__wrapper {
     padding: 100px 30px 0 30px;
   }
@@ -18,6 +46,8 @@ const PressStyles = styled.div`
   h5:nth-child(2) {
     grid-column: span 5;
   }
+
+
 
   @media only screen and (max-width: 1100px) {
     .press__wrapper {
@@ -51,9 +81,10 @@ export default function PressPage({ data }) {
   const _rawLayouts = content._rawPressArticles;
   return (
     <>
+      <PressStyles>
       <GlobalStyles />
       <Nav title={title} />
-      <PressStyles>
+
         <div className="press__wrapper">
           <div className="press_inner">
             <div className="press__top site__grid">
@@ -63,8 +94,8 @@ export default function PressPage({ data }) {
             <Layouts layouts={layouts} _rawLayouts={_rawLayouts} />
           </div>
         </div>
-      </PressStyles>
       <Footer />
+    </PressStyles>
     </>
   );
 }

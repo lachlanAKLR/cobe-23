@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import lottie from 'lottie-web';
 
-import landingAnimation from '../assets/animations/Cobe_Website_Animation.json';
+import landingAnimation from '../assets/animations/Logo_Rotate.json';
 
 const LandingAnimationStyles = styled.div`
   .animation__wrapper {
@@ -57,7 +57,7 @@ export default function LandingAnimation() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsActive((current) => !current);
-    }, 4100);
+    }, 2200);
     return () => clearTimeout(timer);
   }, []);
 

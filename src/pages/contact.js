@@ -6,16 +6,16 @@ import Footer from '../components/Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 
 const ContactStyles = styled.div`
-  background-color: var(--cream);
-  color: var(--red);
+  background-color: var(--blue);
+  color: var(--green);
   min-height: 100vh;
 
   a {
-    color: var(--red);
+    color: var(--green);
   }
 
   .bar {
-    background-color: var(--red);
+    background-color: var(--green);
   }
 
   .contact__wrapper {
@@ -59,12 +59,11 @@ const ContactStyles = styled.div`
   .logo,
   .arrow,
   .dropdown__logo {
-    filter: invert(34%) sepia(42%) saturate(2560%) hue-rotate(346deg)
-      brightness(86%) contrast(80%);
+    filter: invert(48%) sepia(4%) saturate(1312%) hue-rotate(89deg) brightness(94%) contrast(96%);
   }
 
   .dropdown__wrapper {
-    border-bottom: solid 1.5px var(--red);
+    border-bottom: solid 1.5px var(--green);
   }
   footer {
     padding-top: 50px;
@@ -113,7 +112,8 @@ export const Head = ({ data }) => (
 export default function ContactPage({ data }) {
   const { content } = data;
   const title = content.pageTitle;
-  return (
+  console.log(content)
+  return ( 
     <ContactStyles>
       <GlobalStyles />
       <Nav title={title} />
@@ -125,6 +125,9 @@ export default function ContactPage({ data }) {
         <div className="contact__content site__grid mobile__block">
           <div className="contact__column">
             <h4 className="info__para">{content.contactText}</h4>
+            <h4>
+              <a href={`mailto:${content.bookingLink}`}>Book Consultation</a>
+            </h4>
             <h4>
               <a href={`mailto:${content.contactLink}`}>Email</a>
             </h4>
@@ -177,6 +180,7 @@ export const query = graphql`
       linkedinLink
       pinterestLink
       metaText
+      bookingLink
     }
   }
 `;

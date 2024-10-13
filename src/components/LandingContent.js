@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import { PortableText } from '@portabletext/react';
 
 const StudioLandingStyles = styled.div`
+
+  padding-bottom: 140px;
+
   .studio__landing-inner {
     height: 100vh;
     display: flex;
@@ -45,11 +48,19 @@ const StudioLandingStyles = styled.div`
     padding-bottom: 15px;
   }
 
+  h2 {
+    padding-bottom: 40px;
+  }
+
   .mobile__image {
     display: none;
   }
 
+
   @media only screen and (max-width: 1100px) {
+
+    padding-bottom: 0px;
+
     .studio__landing-inner {
       flex-direction: column;
       height: 100%;
@@ -82,17 +93,24 @@ const StudioLandingStyles = styled.div`
   }
 `;
 
-export default function LandingContent({ content }) {
-  console.log(content);
+export default function LandingContent({ content, isVision }) {
   return (
     <StudioLandingStyles>
       <div className="studio__landing">
         <div className="studio__landing-inner">
           <div className="studio__column">
-            <div className="studio__title half__grid mobile__grid">
-              <h5>Studio</h5>
-              <h5>Cobe</h5>
-            </div>
+          <div className="studio__title half__grid mobile__grid">
+            {isVision ? (
+              <>
+                <h5>Regenerative <br/> & Resilient Design</h5>
+              </>
+            ) : (
+              <>
+                <h5>Studio</h5>
+                <h5>Cobe</h5>
+              </>
+            )}
+          </div>
             <div className="image__wrapper mobile__image">
               <GatsbyImage
                 image={content.image.asset.gatsbyImageData}

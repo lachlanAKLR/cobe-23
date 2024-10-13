@@ -6,23 +6,22 @@ import { PortableText } from '@portabletext/react';
 const ThreeColumnStyles = styled.div`
   padding: 75px 30px;
 
-  .column:nth-child(1) {
-    grid-column: span 3;
+  .column {
+  grid-column: span 4; 
+  padding-bottom: 70px;
   }
 
-  .column:nth-child(2) {
-    grid-column-start: 5;
-    grid-column-end: 8;
-  }
-
-  .column:nth-child(3) {
-    grid-column-start: 9;
-    grid-column-end: 12;
+  .column__content {
+    max-width: 400px;
   }
 
   h1 {
     padding: 40px 0 30px 0;
     cursor: pointer;
+  }
+
+  h2 {
+    padding-bottom: 40px;
   }
 
   p {
@@ -45,8 +44,13 @@ const ThreeColumnStyles = styled.div`
   }
 
   .gatsby-image-wrapper {
-    height: 250px;
-    min-width: 300px;
+    width: 100%; 
+    aspect-ratio: 3 / 2; 
+    object-fit: cover; 
+  }
+
+  .column.no-image {
+    border-top: 1px solid black; 
   }
 
   @media only screen and (max-width: 1100px) {
@@ -66,24 +70,32 @@ const ThreeColumnStyles = styled.div`
     .gatsby-image-wrapper {
       height: 400px;
     }
+
+    .column {
+    padding-bottom: 10px;
+    }
   }
 `;
 
 function Column({ column, raw }) {
   const [isActive, setIsActive] = useState(false);
-  const handleClick = (event) => {
+  const handleClick = () => {
     setIsActive((current) => !current);
   };
+
+ 
   return (
-    <div className="column">
+    <div className={`column ${!column.image?.asset?.gatsbyImageData ? 'no-image' : ''}`}>
       <div className="column__inner">
-        <GatsbyImage
-          image={column.image.asset.gatsbyImageData}
-          style={{
-            width: '100%',
-          }}
-          alt={`image of ${column.heading}`}
-        />
+        {column.image?.asset?.gatsbyImageData ? (
+          <GatsbyImage
+            image={column.image.asset.gatsbyImageData}
+            style={{
+              width: '100%',
+            }}
+            alt={`image of ${column.heading}`}
+          />
+        ) : null}
         <h1 onClick={handleClick}>{column.heading}</h1>
         <div className={isActive ? 'column__content' : 'column__content clamp'}>
           <PortableText value={raw.content} />
@@ -96,10 +108,14 @@ function Column({ column, raw }) {
   );
 }
 
+
+
 export default function ThreeColumn({ block, raw }) {
+  console.log(raw.title)
   return (
     <ThreeColumnStyles>
       <div className="three__column-wrapper">
+      {raw.title && <h2>{raw.title}</h2>}
         <div className="three__column-inner site__grid">
           {block.columnContent.map((column, index) => (
             <Column

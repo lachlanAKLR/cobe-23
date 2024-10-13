@@ -32,7 +32,7 @@ const DropBlockStyles = styled.div`
   }
 
   li:before {
-    content: '— ';
+    content: '•  ';
   }
 
   .item__inner {
@@ -59,7 +59,8 @@ const DropBlockStyles = styled.div`
     opacity: 0;
     pointer-events: none;
     max-height: 0;
-    transition: max-height 0.5s ease-in;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
   }
 
   .show {
@@ -70,8 +71,8 @@ const DropBlockStyles = styled.div`
   }
 
   ul {
-    text-indent: -20px;
-    margin-left: 20px;
+    text-indent: -12px;
+    margin-left: 12px;
   }
 
   @media only screen and (max-width: 1100px) {

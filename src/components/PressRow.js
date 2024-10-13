@@ -7,7 +7,7 @@ import ArrowRight from '../images/ArrowRight.svg';
 
 const PressRowStyles = styled.div`
   .press__row {
-    border-top: 1px solid black;
+    border-top: 1px solid var(--brown);
   }
 
   .press__row-inner {

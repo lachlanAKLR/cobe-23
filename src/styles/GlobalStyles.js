@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
   .gatsby-image-wrapper img[src*=base64\\,] {
       image-rendering: smooth;
   } 
-
+ 
   .half__grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr); 
@@ -108,7 +108,9 @@ const GlobalStyles = createGlobalStyle`
     --skin: #F7D7C0;
     --blue: #EAF0F4;
     --red: #D14029; 
-    --white: #D14029; 
+    --white: #D14029;
+    --green: #647A6C;
+    --brown: #AA7B41; 
   }
 
   strong {

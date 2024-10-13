@@ -5,6 +5,7 @@ import DropBlock from './DropBlock';
 import PressRow from './PressRow';
 import SingleImage from './SingleImage';
 import TwoUpImage from './TwoUpImage';
+import AccordionBlock from './AccordionBlock';
 
 export default function Layouts({ layouts, _rawLayouts, handleClick }) {
   const Components = {
@@ -14,6 +15,7 @@ export default function Layouts({ layouts, _rawLayouts, handleClick }) {
     pressRow: PressRow,
     singleImage: SingleImage,
     twoUpImage: TwoUpImage,
+    accordionBlock: AccordionBlock,
   };
 
   let slideIndex = -1;
