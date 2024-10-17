@@ -8,7 +8,7 @@ const LandingAnimationStyles = styled.div`
   .animation__wrapper {
     height: 100vh;
     width: 100%;
-    background-color: var(--cream);
+    background-color: var(--burgundy);
     position: fixed;
     z-index: 10000;
   }

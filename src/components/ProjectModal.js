@@ -147,6 +147,8 @@ export default function ProjectModal({ data }) {
   const isAward = project.awards.length > 0;
   const [isActive, setIsActive] = useState(false);
   const activeColor = isPink ? '#F7D7C0' : '#EAF0F4';
+  const textColor = isPink ? '#7E1529' : '#647A6C';
+  const inactiveColor = '#000';
   const isBuilder = project.builder !== null;
 
   const handleClick = (event) => {
@@ -158,10 +160,17 @@ export default function ProjectModal({ data }) {
         className={isActive ? 'modal__wrapper active' : 'modal__wrapper'}
         style={{
           backgroundColor: isActive ? `${activeColor}` : '#F7F0E7',
+          color: textColor,
+          borderTopColor: isActive ? textColor : inactiveColor,
         }}
       >
         <button onClick={handleClick} type="button">
-          <h3 className="modal__button">
+          <h3
+            className="modal__button"
+            style={{
+              color: isActive ? textColor : inactiveColor, 
+            }}
+          >
             Project Information{' '}
             <span className="plus">{isActive ? '-' : '+'}</span>
           </h3>
@@ -186,13 +195,17 @@ export default function ProjectModal({ data }) {
                   <h3>Status</h3>
                 </div>
                 <div className="row__right">
-                  <h3
-                    className={
-                      isComplete ? 'style__pill' : 'style__pill dashed'
-                    }
-                  >
-                    {isComplete ? 'Completed' : 'In Progress'}
-                  </h3>
+                <h3
+                  className={isComplete ? 'style__pill' : 'style__pill dashed'}
+                  style={{
+                    borderColor: textColor, // Match border-color to the text color
+                    borderWidth: '2px', // Optional: define the border width if needed
+                    borderStyle: isComplete ? 'solid' : 'dashed', // Border style based on isComplete
+                    color: textColor, // Ensure text color also matches the condition
+                  }}
+                >
+                  {isComplete ? 'Completed' : 'In Progress'}
+               </h3>
                 </div>
               </div>
               <div className="row">

@@ -14,8 +14,6 @@ const ContactStyles = styled.div`
     color: var(--green);
   }
 
-
-
   .bar {
     background-color: var(--green);
   }

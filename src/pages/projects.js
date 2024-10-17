@@ -11,6 +11,27 @@ import ProjectsText from '../components/ProjectsText';
 
 const ProjectsStyles = styled.div`
   background-color: var(--cream);
+  color: var(--burgundy);
+
+  a {
+    color: var(--burgundy);
+  }
+
+  .style__pill {
+    border-color: var(--burgundy)
+  }
+
+  .bar {
+    background-color: var(--burgundy);
+  }
+
+  svg {
+    filter: invert(11%) sepia(35%) saturate(7309%) hue-rotate(336deg) brightness(93%) contrast(93%);
+  }
+
+  .dropdown__wrapper {
+    border-color: var(--burgundy);
+  }
 
   .text__wrapper {
     width: 100%;

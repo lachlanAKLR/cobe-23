@@ -8,7 +8,24 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
 const StudioStyles = styled.div`
-  background-color: var(--blue);
+  background-color: var(--cream);
+  color: var(--green);
+
+  .bar {
+    background-color: var(--green); 
+  }
+
+  .dropdown__wrapper, .dropdown__item {
+    border-color: var(--green);
+  }
+
+  a {
+    color: var(--green);
+  }
+
+  svg {
+    filter: invert(47%) sepia(6%) saturate(1005%) hue-rotate(89deg) brightness(95%) contrast(88%);
+  }
 `;
 
 export const Head = ({ data }) => (

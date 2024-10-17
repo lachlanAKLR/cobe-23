@@ -111,6 +111,8 @@ const GlobalStyles = createGlobalStyle`
     --white: #D14029;
     --green: #647A6C;
     --brown: #AA7B41; 
+    --burgundy: #7E1529; 
+
   }
 
   strong {

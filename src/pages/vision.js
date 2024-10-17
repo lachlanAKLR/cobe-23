@@ -10,9 +10,6 @@ import Layouts from '../components/Layouts';
 const VisionStyles = styled.div`
   background-color: var(--green);
 
-
-
-
   .dropdown__wrapper {
     background-color: var(--green);
   }
