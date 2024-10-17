@@ -338,7 +338,7 @@ function Header({ title, instagram, email }) {
           >
             <div className="dropdown__top">
               <Link fade to="/press">
-                <h1 className="nav">Press</h1>
+                <h1 className="nav">Media</h1>
               </Link>
               <p>Studio CoBe projects out and about in the world.</p>
             </div>
