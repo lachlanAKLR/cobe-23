@@ -291,7 +291,7 @@ function Header({ title, instagram, email }) {
               </div>
             </Link>
           </div>
-          {/* <div
+          <div
             className={
               isActive
                 ? 'dropdown__column dropdown__visible'
@@ -309,7 +309,7 @@ function Header({ title, instagram, email }) {
                 <Vision className="dropdown__logo" />
               </div>
             </Link>
-          </div> */}
+          </div>
           <div
             className={
               isActive

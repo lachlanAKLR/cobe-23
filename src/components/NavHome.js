@@ -7,6 +7,7 @@ import Press from '../images/Press.svg';
 import Projects from '../images/Projects.svg';
 import Studio from '../images/Studio.svg';
 import Contact from '../images/Contact.svg';
+import Vision from '../images/Soon.svg';
 
 const NavStyles = styled.div`
   .header__nav {
@@ -322,6 +323,25 @@ function Header({ title, instagram, email }) {
             }
           >
             <div className="dropdown__top">
+              <Link fade to="/vision">
+                <h1 className="nav">Vision</h1>
+              </Link>
+              <p>Our approach to regenerative design, sustainability and how we embed into all our projects.</p>
+            </div>
+            <Link fade to="/vision">
+              <div className="dropdown__icon">
+                <Vision className="dropdown__logo" />
+              </div>
+            </Link>
+          </div>
+          <div
+            className={
+              isActive
+                ? 'dropdown__column dropdown__visible'
+                : 'dropdown__column'
+            }
+          >
+            <div className="dropdown__top">
               <Link to="/contact">
                 <h1 className="nav">Contact</h1>
               </Link>
@@ -342,7 +362,7 @@ function Header({ title, instagram, email }) {
           >
             <div className="dropdown__top">
               <Link to="/press">
-                <h1 className="nav">Press</h1>
+                <h1 className="nav">Media</h1>
               </Link>
               <p>Studio CoBe projects out and about in the world.</p>
             </div>
