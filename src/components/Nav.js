@@ -128,6 +128,11 @@ const NavStyles = styled.div`
     transition: all 0.5s ease-in-out 1.4s;
   }
 
+  .dropdown__visible:nth-child(6) {
+    opacity: 1;
+    transition: all 0.5s ease-in-out 1.5s;
+  }
+
   h1 {
     padding-bottom: 20px;
   }
@@ -170,6 +175,7 @@ const NavStyles = styled.div`
 
     .dropdown__wrapper {
       padding: 75px 20px 20px 20px;
+      height: 445px;
     }
 
     h1 {
